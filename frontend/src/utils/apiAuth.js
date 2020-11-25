@@ -1,6 +1,6 @@
 import { setToken } from './token';
 
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'http://kusto.students.nomoreparties.xyz';
 
 function getResponseData(res) {
     if (res.ok) {
