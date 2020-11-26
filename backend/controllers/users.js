@@ -25,7 +25,7 @@ const getUserInfo = (req, res, next) => {
 
 const createUser = (req, res, next) => {
   const {
-    name = 'Жак-Ив Кусто', about = 'Исследователь', avatar = 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png', email, password,
+    name, about, avatar, email, password,
   } = req.body;
   bcrypt.hash(password, 10, (error, hash) => {
     User.findOne({ email })
