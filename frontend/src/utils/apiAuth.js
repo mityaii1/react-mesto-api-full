@@ -1,6 +1,6 @@
 import { setToken } from './token';
 
-export const BASE_URL = 'http://kusto.students.nomoreparties.xyz';
+export const BASE_URL = 'https://kusto.students.nomoreparties.xyz';
 
 function getResponseData(res) {
     if (res.ok) {
