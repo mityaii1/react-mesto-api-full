@@ -4,4 +4,4 @@
 #### Frontend:  https://kusto.students.nomoredomains.monster/
 #### Backend: https://api.kusto.students.nomoredomains.monster/
 
-Публичный IP-адрес сервера: 84.201.129.67
+Публичный IP-адрес сервера: 130.193.36.37
