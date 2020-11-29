@@ -2,7 +2,7 @@
   "name": "react-mesto-api-full",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mityaii1.github.io/react-mesto-api-full/",
+  "homepage": "",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -18,7 +18,8 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy2": "npm run build && scp -r ./build/* mityaii1@130.193.36.37:/home/mityaii1/react-mesto-api-full/new-frontend"
   },
   "eslintConfig": {
     "extends": "react-app"

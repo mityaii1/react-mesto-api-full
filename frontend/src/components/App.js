@@ -102,15 +102,7 @@ function App() {
         setIsCardDeletePopupOpen(false)
         setInfoTooltip(false)
     }
-    React.useEffect(() => {
-        Promise.all([api.getUserInfo(), api.getInitialCards()])
-            .then(([user, res]) => {
-                setCurrentUser(user);
-                setCards(res)
-
-            })
-            .catch((err) => { console.log(err); })
-    }, [])
+    
 
     function onInfoTooltip(image, text) {
         setToolTipPopup({
@@ -120,8 +112,10 @@ function App() {
         setInfoTooltip(true)
     }
     const handleLogin = (email) => {
+        history.push('/')
         setLoggedIn(true);
         setEmail(email);
+        
     };
 
     const tokenCheck = () => {
@@ -149,6 +143,18 @@ function App() {
     React.useEffect(() => {
         tokenCheck();
     }, []);
+
+    React.useEffect(() => {
+        const jwt = getToken();
+       if (loggedIn) {
+        Promise.all([api.getUserInfo(jwt), api.getInitialCards(jwt)])
+            .then(([user, res]) => {
+                setCurrentUser(user);
+                setCards(res);
+            })
+            .catch((err) => { console.log(err); })
+}
+    }, [loggedIn])
 
     const onSignOut = () => {
         removeToken()
@@ -180,7 +186,7 @@ function App() {
                         onCardLike={handleCardLike} />
                 </Switch>
 
-                <Route>
+                <Route path="*">
                     {loggedIn === true ? <Redirect to='/' /> : <Redirect to='/sign-in' />}
                 </Route>
                 <Footer />

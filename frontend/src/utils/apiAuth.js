@@ -1,6 +1,6 @@
 import { setToken } from './token';
 
-export const BASE_URL = 'https://kusto.students.nomoreparties.xyz';
+export const BASE_URL = 'https://api.kusto.students.nomoredomains.monster';
 
 function getResponseData(res) {
     if (res.ok) {

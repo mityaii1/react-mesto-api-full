@@ -9,9 +9,13 @@ class Api {
         }
         return Promise.reject(new Error(`Ошибка: ${res.status}`));
     }
-    getUserInfo() {
+    getUserInfo(jwt) {
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwt}`,
+            },
         })
             .then(this._getResponseData)
     }
@@ -26,9 +30,13 @@ class Api {
         })
             .then(this._getResponseData)
     }
-    getInitialCards() {
+    getInitialCards(jwt) {
         return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwt}`,
+            },
         })
             .then(this._getResponseData)
     }
@@ -77,7 +85,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://kusto.students.nomoreparties.xyz',
+    baseUrl: 'https://api.kusto.students.nomoredomains.monster',
     headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json'
